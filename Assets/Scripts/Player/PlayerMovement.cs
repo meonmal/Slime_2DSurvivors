@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // 플레이어의 이동 속도
+    /// <summary>
+    /// 플레이어의 이동 속도
+    /// </summary>
     [SerializeField]
     private float moveSpeed;
 
-    // 이동에 필요한 리지드바디2D
+    /// <summary>
+    /// 이동에 필요한 리지드바디2D
+    /// </summary>
     private Rigidbody2D playerRigidbody2D;
 
     private void Awake()
