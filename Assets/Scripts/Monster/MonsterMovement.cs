@@ -17,10 +17,21 @@ public class MonsterMovement : MonoBehaviour
     /// 몬스터를 이동시키는데 필요한 Rigidbody2D
     /// </summary>
     private Rigidbody2D monsterRigidbody2D;
+    private Monster monster;
 
     private void Awake()
     {
         monsterRigidbody2D = GetComponent<Rigidbody2D>();
+        monster = GetComponent<Monster>();
+    }
+
+    /// <summary>
+    /// 타겟 세팅
+    /// </summary>
+    /// <param name="playerRigidbody2D"></param>
+    public void SetTarget(Rigidbody2D playerRigidbody2D)
+    {
+        target = playerRigidbody2D;
     }
 
     private void FixedUpdate()
