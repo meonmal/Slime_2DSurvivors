@@ -108,6 +108,9 @@ public class MonsterSpawner : MonoBehaviour
     /// <returns></returns>
     private Vector2 SpawnPosition()
     {
+        // 플레이어의 위치
+        Vector2 playerPosition = target.transform.position;
+
         // x 축의 스폰 위치를 반전시키기 위해 랜덤한 숫자 생성
         float randomXNumber = Random.Range(0, 101);
         // x 축의 스폰 위치
@@ -135,7 +138,8 @@ public class MonsterSpawner : MonoBehaviour
         // Vector2 타입의 스폰 위치 생성
         Vector2 spawnPosition = new Vector2(randomXPosition, randomYPosition);
 
-        return spawnPosition;
+        // 플레이어를 기준으로 소환되게 만든다.
+        return playerPosition + spawnPosition;
     }
 
     /// <summary>
