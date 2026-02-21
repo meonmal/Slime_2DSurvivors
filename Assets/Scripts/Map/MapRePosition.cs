@@ -7,25 +7,31 @@ using System.Collections.Generic;
 public class MapRePosition : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Transform player;
+    [SerializeField] 
+    private Transform player;
     // 플레이어 위치 기준으로 청크를 재배치하기 때문에 필요
-    [SerializeField] private Transform[] chunks;
+    [SerializeField] 
+    private Transform[] chunks;
     // 3x3 = 9개 청크 (타일맵 Transform 9개)
 
     [Header("Chunk size (cells)")]
-    [SerializeField] private Vector2Int chunkCellSize = new Vector2Int(36, 20);
+    [SerializeField] 
+    private Vector2Int chunkCellSize = new Vector2Int(36, 20);
     // 한 청크가 가로 36칸, 세로 20칸
 
     [Header("Grid cell size (world units)")]
-    [SerializeField] private Vector2 gridCellSize = new Vector2(1f, 1f);
+    [SerializeField] 
+    private Vector2 gridCellSize = new Vector2(1f, 1f);
     // 타일 1칸이 월드에서 몇 유닛인지 (Grid.cellSize 값)
 
     [Header("Origin")]
-    [SerializeField] private Vector2 originWorld = Vector2.zero;
+    [SerializeField] 
+    private Vector2 originWorld = Vector2.zero;
     // 맵 기준점 (보통 0,0)
 
     [Header("If your chunks are center-aligned like (+18,+10) etc")]
-    [SerializeField] private bool centerAligned = true;
+    [SerializeField] 
+    private bool centerAligned = true;
     // 청크가 중심 기준(±18, ±10 등)으로 배치되어 있다면 true
 
     private Vector2 chunkWorldSize;
@@ -47,13 +53,17 @@ public class MapRePosition : MonoBehaviour
 
         // 안전 체크 (3x3이 아니라면 오류 출력)
         if (chunks == null || chunks.Length != 9)
+        {
             Debug.LogError($"chunks는 9개(3x3)여야 함. 현재: {(chunks == null ? 0 : chunks.Length)}개");
+        }
     }
 
     private void LateUpdate()
     {
         if (player == null || chunks == null || chunks.Length != 9)
+        {
             return;
+        }
 
         // 플레이어 위치를 청크 좌표계로 변환
         // centerOffset을 빼는 이유: 중심 기준 배치 보정
@@ -73,7 +83,7 @@ public class MapRePosition : MonoBehaviour
          baseX, baseY가 플레이어가 속한 중심 청크.
         */
 
-        int idx = 0;
+        int index = 0;
 
         for (int y = -1; y <= 1; y++)
         {
@@ -90,13 +100,13 @@ public class MapRePosition : MonoBehaviour
                 Vector3 targetPos = new Vector3(
                     targetPos2D.x,
                     targetPos2D.y,
-                    chunks[idx].position.z
+                    chunks[index].position.z
                 );
 
                 // 청크를 해당 위치로 재배치
-                chunks[idx].position = targetPos;
+                chunks[index].position = targetPos;
 
-                idx++;
+                index++;
             }
         }
     }

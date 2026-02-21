@@ -5,18 +5,24 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// 플레이어의 이동 속도
     /// </summary>
-    [SerializeField]
-    private float moveSpeed;
+    // [SerializeField]
+    // private float moveSpeed;
 
     /// <summary>
     /// 이동에 필요한 리지드바디2D
     /// </summary>
     private Rigidbody2D playerRigidbody2D;
 
+    /// <summary>
+    /// 이동속도를 가져오기 위한 플레이어
+    /// </summary>
+    private Player player;
+
     private void Awake()
     {
         // 컴포넌트 정보 가져오기
         playerRigidbody2D = GetComponent<Rigidbody2D>();
+        player = GetComponent<Player>();
     }
 
     private void FixedUpdate()
@@ -38,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveDirection = new Vector2(horizontal, vertical).normalized;
 
         // Rigidbody2D를 통해 실제로 움직이게 만들어준다.
-        playerRigidbody2D.linearVelocity = moveDirection * moveSpeed;
+        // playerRigidbody2D.linearVelocity = moveDirection * moveSpeed;
+
+        playerRigidbody2D.linearVelocity = moveDirection * player.playerStats.MoveSpeed;
     }
 }
