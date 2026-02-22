@@ -98,6 +98,7 @@ public class MonsterSpawner : MonoBehaviour
         Monster clone = Instantiate(monsterPrefabs[index]);
         // 방금 생성한 몬스터의 풀을 여기로 지정
         clone.SetPool(pool);
+        clone.transform.parent = this.transform;
 
         return clone;
     }

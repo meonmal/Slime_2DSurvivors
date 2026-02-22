@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bd78c9cd4007749ad788909be67a05, type: 3}
   m_Name: RangedWeapon
   m_EditorClassIdentifier: 
-  weaponDamage: 0
+  weaponDamage: 3
   weaponAttackCoolTime: 0.5

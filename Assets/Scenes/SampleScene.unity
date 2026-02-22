@@ -7500,7 +7500,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 562866421}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &192516719
 MonoBehaviour:
@@ -15113,7 +15113,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 192516718}
   - {fileID: 1216369423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37414,7 +37413,6 @@ MonoBehaviour:
   findRange: 10
   findCoolTime: 0.1
   targets: []
-  bullet: {fileID: 5751061861608078490, guid: 732d2bb15c64fb0469c92f597abd7e1c, type: 3}
   currentTarget: {fileID: 0}
 --- !u!114 &1216369426
 MonoBehaviour:
@@ -66954,3 +66952,4 @@ SceneRoots:
   - {fileID: 562866421}
   - {fileID: 2087749307}
   - {fileID: 2059400906}
+  - {fileID: 192516718}

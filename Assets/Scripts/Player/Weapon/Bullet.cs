@@ -7,15 +7,25 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
+    private int damage;
+
     private bool isReleased;
     private float timer;
     private Vector2 _direction;
+
+
     private Rigidbody2D rigid;
+    private RangedWeapon rangedWeapon;
+    private Player player;
+
     private IObjectPool<Bullet> _pool;
+
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        rangedWeapon = GetComponentInParent<RangedWeapon>();
+        player = GetComponentInParent<Player>();
     }
 
     public void SetPool(IObjectPool<Bullet> pool)
@@ -27,7 +37,7 @@ public class Bullet : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer > 10f)
+        if(timer > 5f)
         {
             ThisDestroy();
         }
@@ -48,6 +58,7 @@ public class Bullet : MonoBehaviour
         _direction = direction;
         timer = 0f;
         isReleased = false;
+        damage = player.playerStats.Damage * rangedWeapon.weaponData.WeaponDamage;
 
         // z축 회전 각도 구하기
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -58,8 +69,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Monster"))
+        IDamageable iDamageable = collision.GetComponent<IDamageable>();
+
+        if (iDamageable != null)
         {
+            iDamageable.TakeDamage(damage);
             ThisDestroy();
         }
     }

@@ -130,7 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebef79f3d38e1247bb590decbfddb57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterMoveSpeed: 3
   target: {fileID: 0}
 --- !u!114 &3397912037826874061
 MonoBehaviour:
@@ -144,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b469014670bef4296fa1c5be17f334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterStats: {fileID: 11400000, guid: 12503e539a0591f478b9807d9d1a8bb7, type: 2}
 --- !u!58 &6185398121891796310
 CircleCollider2D:
   m_ObjectHideFlags: 0

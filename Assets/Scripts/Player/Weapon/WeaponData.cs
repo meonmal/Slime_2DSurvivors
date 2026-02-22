@@ -7,7 +7,7 @@ public class WeaponData : ScriptableObject
     /// 무기 자체 데미지
     /// </summary>
     [SerializeField]
-    private float weaponDamage;
+    private int weaponDamage;
     /// <summary>
     /// 무기 자체 쿨타임
     /// </summary>
@@ -17,7 +17,7 @@ public class WeaponData : ScriptableObject
     /// <summary>
     /// 무기 자체 데미지 프로퍼티
     /// </summary>
-    public float WeaponDamage
+    public int WeaponDamage
     {
         get
         {

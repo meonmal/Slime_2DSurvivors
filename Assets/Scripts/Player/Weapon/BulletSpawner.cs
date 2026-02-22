@@ -37,7 +37,7 @@ public class BulletSpawner : MonoBehaviour
 
     private Bullet SpawnBullet()
     {
-        Bullet bullet = Instantiate(bulletPrefab);
+        Bullet bullet = Instantiate(bulletPrefab, transform);
         bullet.SetPool(pool);
 
         return bullet;

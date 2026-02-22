@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class Monster : MonoBehaviour
+public class Monster : MonoBehaviour, IDamageable
 {
+    public MonsterStats monsterStats;
+
     /// <summary>
     /// 이 몬스터가 소속된 오브젝트 풀 참조
     /// MonsterSpawner가 몬스터를 생성할 때 SetPool로 주입해줌
@@ -10,6 +12,11 @@ public class Monster : MonoBehaviour
     private IObjectPool<Monster> _pool;
 
     private MonsterMovement monsterMovement;
+
+    /// <summary>
+    /// 몬스터의 현재 체력
+    /// </summary>
+    private int currentHp;
 
     /// <summary>
     /// MonsterSpawner에서 SpawnMonster()를 실행할 때 호출 됨
@@ -24,6 +31,7 @@ public class Monster : MonoBehaviour
     private void Awake()
     {
         monsterMovement = GetComponent<MonsterMovement>();
+        currentHp = monsterStats.MaxHp;
     }
 
     /// <summary>
@@ -33,6 +41,16 @@ public class Monster : MonoBehaviour
     public void SetTarget(Rigidbody2D targetRigidbody2D)
     {
         monsterMovement.SetTarget(targetRigidbody2D);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHp -= damage;
+
+        if(currentHp <= 0)
+        {
+            Die();
+        }
     }
 
     /// <summary>

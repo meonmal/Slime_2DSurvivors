@@ -1,21 +1,15 @@
 using UnityEngine;
 
 [CreateAssetMenu]
-public class PlayerStats : ScriptableObject
+public class MonsterStats : ScriptableObject
 {
-    /// <summary>
-    /// 플레이어의 이동속도
-    /// </summary>
     [SerializeField]
     private float moveSpeed;
-    /// <summary>
-    /// 플레이어의 데미지
-    /// </summary>
     [SerializeField]
-    private int damage;
+    private int maxHp;
 
     /// <summary>
-    /// 플레이어의 이동속도 프로퍼티
+    /// 몬스터의 이동속도
     /// </summary>
     public float MoveSpeed
     {
@@ -30,17 +24,18 @@ public class PlayerStats : ScriptableObject
     }
 
     /// <summary>
-    /// 플레이어의 데미지
+    /// 몬스터의 최대 HP
     /// </summary>
-    public int Damage
+    public int MaxHp
     {
         get
         {
-            return damage;
+            return maxHp;
         }
         set
         {
-            damage = value;
+            maxHp = value;
         }
     }
+
 }
