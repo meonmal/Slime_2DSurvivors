@@ -13,6 +13,8 @@ public class Monster : MonoBehaviour, IDamageable
 
     private MonsterMovement monsterMovement;
 
+    private ExperienceOrbPool expOrbPool;
+
     /// <summary>
     /// 몬스터의 현재 체력
     /// </summary>
@@ -32,6 +34,11 @@ public class Monster : MonoBehaviour, IDamageable
     {
         monsterMovement = GetComponent<MonsterMovement>();
         currentHp = monsterStats.MaxHp;
+    }
+
+    private void Start()
+    {
+        expOrbPool = GetComponentInParent<ExperienceOrbPool>();
     }
 
     /// <summary>
@@ -67,6 +74,7 @@ public class Monster : MonoBehaviour, IDamageable
         }
 
         _pool.Release(this);
+        expOrbPool.Spawn(monsterStats.XpAmount, transform.position);
     }
 
     /// <summary>
@@ -76,4 +84,5 @@ public class Monster : MonoBehaviour, IDamageable
     {
         Despawn();
     }
+
 }

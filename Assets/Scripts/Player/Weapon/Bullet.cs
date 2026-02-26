@@ -1,6 +1,7 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Pool;
+using System.Collections.Generic;
 
 public class Bullet : MonoBehaviour
 {
@@ -13,13 +14,11 @@ public class Bullet : MonoBehaviour
     private float timer;
     private Vector2 _direction;
 
-
     private Rigidbody2D rigid;
     private RangedWeapon rangedWeapon;
     private Player player;
 
     private IObjectPool<Bullet> _pool;
-
 
     private void Awake()
     {

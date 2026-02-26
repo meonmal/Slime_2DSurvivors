@@ -13,6 +13,15 @@ public class PlayerStats : ScriptableObject
     /// </summary>
     [SerializeField]
     private int damage;
+    /// <summary>
+    /// 플레이어의 레벨
+    /// </summary>
+    [SerializeField]
+    private int level;
+    [SerializeField]
+    private float expMagnetRadius;
+
+    public int[] maxAmount = new int[] { };
 
     /// <summary>
     /// 플레이어의 이동속도 프로퍼티
@@ -41,6 +50,36 @@ public class PlayerStats : ScriptableObject
         set
         {
             damage = value;
+        }
+    }
+
+    /// <summary>
+    /// 플레이어의 레벨
+    /// </summary>
+    public int Level
+    {
+        get
+        {
+            return level;
+        }
+        set
+        {
+            level = value;
+        }
+    }
+
+    /// <summary>
+    /// 경험치 구슬 흡수 범위
+    /// </summary>
+    public float ExpMagnetRadius
+    {
+        get
+        {
+            return expMagnetRadius;
+        }
+        set
+        {
+            expMagnetRadius = value;
         }
     }
 }

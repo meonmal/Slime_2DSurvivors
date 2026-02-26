@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2561f0e86f9cf384d8f45bfd1438a4f9, type: 3}
+  m_Name: PlayerExpMagnetRadius
+  m_EditorClassIdentifier: 
+  icon: {fileID: -1466323704, guid: 97674d34c3046274f9cee23fa0f2aec1, type: 3}
+  title: "\uACBD\uD5D8\uCE58 \uD68D\uB4DD \uBC94\uC704"
+  desc: "\uACBD\uD5D8\uCE58 \uD68D\uB4DD \uBC94\uC704\uB97C \uB192\uC785\uB2C8\uB2E4."
+  stat: 2
+  values:
+  - 5
+  - 10
+  - 15

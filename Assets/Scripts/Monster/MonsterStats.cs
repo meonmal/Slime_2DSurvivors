@@ -7,6 +7,8 @@ public class MonsterStats : ScriptableObject
     private float moveSpeed;
     [SerializeField]
     private int maxHp;
+    [SerializeField]
+    private int xpAmount;
 
     /// <summary>
     /// 몬스터의 이동속도
@@ -38,4 +40,18 @@ public class MonsterStats : ScriptableObject
         }
     }
 
+    /// <summary>
+    /// 몬스터가 주는 경험치량
+    /// </summary>
+    public int XpAmount
+    {
+        get
+        {
+            return xpAmount;
+        }
+        set
+        {
+            xpAmount = value;
+        }
+    }
 }
