@@ -16,4 +16,5 @@ MonoBehaviour:
   damage: 1
   level: 4
   expMagnetRadius: 5
+  maxHP: 100
   maxAmount: 3200000064000000c800000090010000e8030000

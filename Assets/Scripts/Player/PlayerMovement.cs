@@ -46,6 +46,6 @@ public class PlayerMovement : MonoBehaviour
             // Rigidbody2D를 통해 실제로 움직이게 만들어준다.
             // playerRigidbody2D.linearVelocity = moveDirection * moveSpeed;
 
-            playerRigidbody2D.linearVelocity = moveDirection * player.playerStats.MoveSpeed;
+            playerRigidbody2D.linearVelocity = moveDirection * player.PlayerMoveSpeed.CurrentValue;
     }
 }

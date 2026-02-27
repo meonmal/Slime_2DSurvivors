@@ -60,6 +60,16 @@ public class Monster : MonoBehaviour, IDamageable
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        IDamageable idamageable = collision.GetComponent<IDamageable>();
+
+        if(idamageable != null && collision.CompareTag("Player"))
+        {
+            idamageable.TakeDamage(monsterStats.MonsterDamage);
+        }
+    }
+
     /// <summary>
     /// 몬스터를 풀로 되돌리는 함수
     /// </summary>

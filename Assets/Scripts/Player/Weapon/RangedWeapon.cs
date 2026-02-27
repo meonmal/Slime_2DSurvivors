@@ -23,6 +23,8 @@ public class RangedWeapon : WeaponBase
     /// </summary>
     [SerializeField]
     private Collider2D[] targets;
+    [SerializeField]
+    private LevelUpSO weaponDamage;
     /// <summary>
     /// 오브젝트 풀로 관리하기 위한 컴포넌트
     /// </summary>
@@ -32,6 +34,8 @@ public class RangedWeapon : WeaponBase
     /// 현재 가장 가까운 타겟
     /// </summary>
     public Collider2D currentTarget;
+
+    public LevelUpSO WeaponDamage => weaponDamage;
 
     private void Awake()
     {
@@ -74,7 +78,7 @@ public class RangedWeapon : WeaponBase
             bulletSpawner.Spawn(direction);
 
             // 공격 쿨타임동안 대기
-            yield return new WaitForSeconds(weaponData.WeaponAttackCoolTime);
+            yield return new WaitForSeconds(weaponCoolTime.CurrentValue);
         }
     }
 

@@ -57,7 +57,7 @@ public class Bullet : MonoBehaviour
         _direction = direction;
         timer = 0f;
         isReleased = false;
-        damage = player.playerStats.Damage * rangedWeapon.weaponData.WeaponDamage;
+        damage = (int)player.PlayerDamage.CurrentValue * (int)rangedWeapon.WeaponDamage.CurrentValue;
 
         // z축 회전 각도 구하기
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -70,7 +70,7 @@ public class Bullet : MonoBehaviour
     {
         IDamageable iDamageable = collision.GetComponent<IDamageable>();
 
-        if (iDamageable != null)
+        if (iDamageable != null && collision.CompareTag("Monster"))
         {
             iDamageable.TakeDamage(damage);
             ThisDestroy();

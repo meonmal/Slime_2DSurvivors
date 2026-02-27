@@ -8,6 +8,8 @@ public class MonsterStats : ScriptableObject
     [SerializeField]
     private int maxHp;
     [SerializeField]
+    private int monsterDamage;
+    [SerializeField]
     private int xpAmount;
 
     /// <summary>
@@ -37,6 +39,21 @@ public class MonsterStats : ScriptableObject
         set
         {
             maxHp = value;
+        }
+    }
+
+    /// <summary>
+    /// 몬스터의 데미지
+    /// </summary>
+    public int MonsterDamage
+    {
+        get
+        {
+            return monsterDamage;
+        }
+        set
+        {
+            monsterDamage = value;
         }
     }
 

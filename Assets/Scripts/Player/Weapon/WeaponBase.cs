@@ -6,7 +6,7 @@ public abstract class WeaponBase : MonoBehaviour
     /// <summary>
     /// 무기의 데이터(스탯)
     /// </summary>
-    public WeaponData weaponData;
+    public LevelUpSO weaponCoolTime;
 
     /// <summary>
     /// 공격 타이머
@@ -17,7 +17,7 @@ public abstract class WeaponBase : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(weaponData.WeaponAttackCoolTime <= timer)
+        if(weaponCoolTime.CurrentValue <= timer)
         {
             timer = 0f;
             Attack();
