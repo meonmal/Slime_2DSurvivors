@@ -17,20 +17,6 @@ public class LevelUpSO : ScriptableObject
     public string Title => title;
     public string Desc => desc;
 
-    public enum AddStat
-    {
-        PlayerMoveSpeed,
-        PlayerDamage,
-        PlayerExpMagnetRadius,
-        WeaponDamage,
-        WeaponCoolTime,
-    }
-
-    [Header("업그레이드할 스탯 타입")]
-    [SerializeField]
-    private AddStat stat;
-    public AddStat Stat => stat;
-
     [Header("레벨마다 값")]
     [SerializeField]
     private List<float> values = new();

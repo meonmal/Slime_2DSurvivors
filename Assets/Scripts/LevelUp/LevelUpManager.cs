@@ -27,20 +27,21 @@ public class LevelUpManager : MonoBehaviour
 
     public void Open()
     {
-        Debug.Log("LevelUpPanel Open 호출됨");
         Time.timeScale = 0f;
         gameObject.SetActive(true);
 
         // 1️⃣ 후보 필터 (Max 제외)
         List<LevelUpSO> candidates = new();
 
-        foreach (var so in levelUpSOs)
+        foreach (LevelUpSO so in levelUpSOs)
         {
             if (!so.IsMax)
+            {
                 candidates.Add(so);
+            }
         }
 
-        // 후보가 3개 미만이면 그냥 종료
+        // 후보가 0개면 그냥 종료
         if (candidates.Count == 0)
             return;
 

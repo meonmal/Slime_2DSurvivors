@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   maxHp: 3
+  monsterDamage: 2
   xpAmount: 3
